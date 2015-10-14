@@ -3,7 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background: url('https://sosrhythm.files.wordpress.com/2010/12/img_6849.jpg') no-repeat fixed center;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
