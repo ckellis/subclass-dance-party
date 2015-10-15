@@ -25,7 +25,7 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       Math.floor(Math.random() * 18),
       Math.floor(Math.random() * 100),
-      20
+      75
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
@@ -135,7 +135,7 @@ window.placePartners = function(current, partner) {
   var randomBottom = Math.random()*18;
   var randomLeft = Math.random()*100;
   partner.setPosition(randomBottom, randomLeft);
-  current.setPosition(randomBottom, randomLeft + 1.5);
+  current.setPosition(randomBottom, randomLeft + 2);
   current.toggleMirror();
 };
 

@@ -9,11 +9,11 @@ var makeFatDancer = function(top, left, timeBetweenSteps) {
   this.step = function() {
     oldStep.call(this);
 
-    
-
   }.bind(this);
 
   this.step();
+
+  this.$node.addClass("gene");
 
 };
 

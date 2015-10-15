@@ -20,10 +20,10 @@ makeDancer.prototype.setPosition = function(bottom, left) {
   var styleSettings = {
     bottom: "" + bottom + "%",
     left: "" + left + "%",
-    // "z-index": 100-bottom
+    "z-index": 100-bottom
   };
 
-  this.$node.css(styleSettings);
+  this.$node.animate(styleSettings, 50);
 
 };
 
