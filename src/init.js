@@ -66,5 +66,52 @@ $(document).ready(function() {
     })
   });
 
+  $(".nearestBuddy").on("click", function(){
+    var newArray = window.dancers.slice();
+    
+    var findNearest = function(current) {
+
+      if (newArray.length === 0) {
+        return;
+      }
+
+      // COMPARE(current, newArray);
+      newArray = compare(current, newArray);
+
+      findNearest(newArray.shift());
+
+    }
+
+    findNearest(newArray.shift());
+
+  });
+
 });
 
+window.compare = function(current, array) {
+
+  var nearestDancer = 0;
+  var lowestDist = distance(current, array[nearestDancer]);
+
+  for (var i = 1; i < array.length; i++) {
+    if (lowestDist > distance(current, array[i])) {
+      lowestDist = distance(current, array[i]);
+      nearestDancer = i;
+    }
+  }
+
+  // assign them same randomly picked location
+  var randomBottom = Math.random()*25;
+  var randomLeft = Math.random()*100;
+  array[nearestDancer].setPosition(randomBottom, randomLeft);
+  current.setPosition(randomBottom, randomLeft + 2);
+
+  array.splice(nearestDancer, 1);
+
+  return array;
+
+}
+
+window.distance = function(current, nearest) { 
+  return (Math.sqrt(Math.pow((current.$node.position().top - nearest.$node.position().top), 2) + Math.pow((current.$node.position().left - nearest.$node.position().left), 2)));
+};
