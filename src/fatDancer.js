@@ -4,8 +4,13 @@ var makeFatDancer = function(top, left, timeBetweenSteps) {
 
   var oldStep = this.step;
 
+  this.t = 0;
+
   this.step = function() {
     oldStep.call(this);
+
+    
+
   }.bind(this);
 
   this.step();

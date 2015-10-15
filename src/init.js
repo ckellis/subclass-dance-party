@@ -23,9 +23,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      Math.floor(Math.random() * 20),
+      Math.floor(Math.random() * 18),
       Math.floor(Math.random() * 100),
-      Math.random() * 1000
+      20
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
@@ -68,7 +68,7 @@ $(document).ready(function() {
       for (var i = 10; i < window.dancers.length; i++) {
         var dancer = dancers[i];
 
-        var bottom = Math.floor(Math.random() * 20);
+        var bottom = Math.floor(Math.random() * 18);
         var left = Math.random() * (55 - 35) + 35;
 
         dancer.setPosition(bottom, left);
@@ -132,7 +132,7 @@ window.compare = function(current, array) {
 
 window.placePartners = function(current, partner) {
 
-  var randomBottom = Math.random()*20;
+  var randomBottom = Math.random()*18;
   var randomLeft = Math.random()*100;
   partner.setPosition(randomBottom, randomLeft);
   current.setPosition(randomBottom, randomLeft + 1.5);
