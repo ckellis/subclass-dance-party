@@ -22,8 +22,20 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+}
+
+.louise{
+  width:200px;
+  height:200px; 
+  background-image: url('https://media.giphy.com/media/W8dDZeWCZ7eec/giphy.gif');
+  background-size: contain;
   position:absolute;
 }
 
+.tina{
+  width:200px;
+  height:200px;  
+  background-image: url('https://media.giphy.com/media/sMTVmMIl7S4bC/giphy.gif');
+  background-size: contain;
+  position:absolute;
+}

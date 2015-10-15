@@ -6,8 +6,6 @@ var makeFatDancer = function(top, left, timeBetweenSteps) {
 
   this.step = function() {
     oldStep.call(this);
-    this.$node.animate({"width": "-=100px"},'slow').delay(timeBetweenSteps)
-           .animate({"width": "+=100px"},'slow');
   }.bind(this);
 
   this.step();

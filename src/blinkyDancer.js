@@ -6,10 +6,11 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 
   this.step = function() {
     oldStep.call(this);
-    this.$node.toggle();
   }.bind(this);
 
   this.step();
+
+  this.$node.addClass("louise");
 
 };
 

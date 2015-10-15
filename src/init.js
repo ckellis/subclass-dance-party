@@ -23,7 +23,7 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      Math.floor(Math.random() * 25),
+      Math.floor(Math.random() * 20),
       Math.floor(Math.random() * 100),
       Math.random() * 1000
     );
@@ -34,12 +34,15 @@ $(document).ready(function() {
   $(".lineupButton").on("click", function(event) {
     var bottom = 0;
     var left = 10;
-    var length = window.dancers.length;
-    for( var i = 0; i < Math.floor(length/2); i++){
+
+    for( var i = 0; i < 5; i++){
       var dancer = dancers[i];
       dancer.lineUp(bottom, left);
       bottom += 5;
       left += 5;
+      if(dancer.mirrored){
+        dancer.toggleMirror();
+      }
     }
 
     // 9 elements [1,2,3,4,5,6,7,8,9]
@@ -51,11 +54,29 @@ $(document).ready(function() {
     left = 90;
     bottom = 0;
 
-    for (var i = Math.floor(length/2); i < length; i++) {
+    for (var i = 5; i < 10; i++) {
       var dancer = dancers[i];
       dancer.lineUp(bottom, left);
       bottom += 5;
       left -= 5;
+      if(!dancer.mirrored){
+        dancer.toggleMirror();
+      }
+    }
+
+    if (window.dancers.length > 10) {
+      for (var i = 10; i < window.dancers.length; i++) {
+        var dancer = dancers[i];
+
+        var bottom = Math.floor(Math.random() * 20);
+        var left = Math.random() * (55 - 35) + 35;
+
+        dancer.setPosition(bottom, left);
+
+        if (!dancer.mirrored) {
+          dancer.toggleMirror();
+        }
+      }
     }
   });
 
@@ -101,16 +122,22 @@ window.compare = function(current, array) {
   }
 
   // assign them same randomly picked location
-  var randomBottom = Math.random()*25;
-  var randomLeft = Math.random()*100;
-  array[nearestDancer].setPosition(randomBottom, randomLeft);
-  current.setPosition(randomBottom, randomLeft + 2);
+  placePartners(current, array[nearestDancer])
 
   array.splice(nearestDancer, 1);
 
   return array;
 
-}
+};
+
+window.placePartners = function(current, partner) {
+
+  var randomBottom = Math.random()*20;
+  var randomLeft = Math.random()*100;
+  partner.setPosition(randomBottom, randomLeft);
+  current.setPosition(randomBottom, randomLeft + 1.5);
+  current.toggleMirror();
+};
 
 window.distance = function(current, nearest) { 
   return (Math.sqrt(Math.pow((current.$node.position().top - nearest.$node.position().top), 2) + Math.pow((current.$node.position().left - nearest.$node.position().left), 2)));

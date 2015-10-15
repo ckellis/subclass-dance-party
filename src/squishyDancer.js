@@ -6,12 +6,11 @@ var makeSquishyDancer = function(top, left, timeBetweenSteps) {
 
   this.step = function() {
     oldStep.call(this);
-    this.$node.slideToggle("slow", function() {
-      //add animation
-    });
   }.bind(this);
 
   this.step();
+
+  this.$node.addClass("tina");
 
 };
 
