@@ -96,9 +96,7 @@ $(document).ready(function() {
         return;
       }
 
-      // COMPARE(current, newArray);
       newArray = compare(current, newArray);
-
       findNearest(newArray.shift());
 
     }

@@ -22,7 +22,7 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 
 makeBlinkyDancer.prototype.trackLissajous = function() {
 
-  this.t += 0.01;
+  this.t += 0.001;
   var newX = ((Math.sin(7 * Math.PI * this.t)/3) + 0.5) * 100;
   var newY = ((Math.cos(5 * Math.PI * this.t)/8) + 0.175) * 100;
 
